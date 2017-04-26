@@ -2,7 +2,7 @@
     "_copy_without_render": [
       "*.j2"
     ],
-
+    "dirname": "directory_name",
     "to_name": "John Smith",
     "to_address": "123 Infinite Court Majestic, CA 99999",
     "to_phonenum": "+1 555 1212",
