@@ -1,0 +1,16 @@
+{
+    "_copy_without_render": [
+      "*.j2"
+    ],
+
+    "to_name": "John Smith",
+    "to_address": "123 Infinite Court\
+Majestic, CA 99999",
+    "to_phonenum": "+1 555 1212",
+    "salutation": "Dear",
+    "closing": "Regards",
+    "from_name": "Michael Miller",
+    "renewal": "True",
+    "renew_date": "March 12, 2018"
+
+}

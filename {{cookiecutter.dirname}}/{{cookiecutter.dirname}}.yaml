@@ -1,0 +1,8 @@
+to_name: {{cookiecutter.to_name}}
+to_address: {{cookiecutter.to_address}}
+to_phonenum: {{cookiecutter.to_phonenum}}
+salutation: {{cookiecutter.salutation}}
+closing: {{cookiecutter.closing}}
+from_name: {{cookiecutter.from_name}}
+renewal: {{cookiecutter.renewal}}
+renew_date: {{cookiecutter.renew_date}}
