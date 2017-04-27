@@ -2,6 +2,31 @@ This is an example of a cookiecutter template for dynamic document generation. I
 
 ## Demo
 
+We build a jinja2 template and apply values using pandoc to a LibreOffice template (which just holds styles, no content or template variables).
+
+An example jinja2 template.
+```
+{{salutation}} {{ to_name }},
+
+
+### Update your records
+
+Our records indicate your address is:
+
+{{ to_address }}
+
+
+{% if renewal %}
+### Time for renewal
+
+We also see that you'll be up for renewal on {{ renew_date }}. Would you like to renew now? Contact us at 555-2323
+{% endif %}
+
+{{closing}},
+{{from_name}}
+```
+
+Cookiecutter can pull the repo down from github and then prompt for the values we want for each key interactively.
 ```
 $ cookiecutter https://github.com/jduckles/ccdocs
 You've cloned /Users/jduckles/.cookiecutters/ccdocs before. Is it okay to delete and re-clone it? [yes]: yes
@@ -16,6 +41,22 @@ renewal [True]:
 renew_date [March 12, 2018]:
 
 cd myletter
+```
+
+In this directory we now have a yaml file with pre-filled key/value pairs that will be filled in the document. If we made a mistake above, we can edit this file and the changes will propogate the next time you run `make`
+```
+to_name: John Smith
+to_address: 123 Infinite Court Majestic, CA 99999
+to_phonenum: +1 555 1212
+salutation: Dear
+closing: Regards
+from_name: Michael Miller
+renewal: True
+renew_date: March 12, 2018
+```
+
+Run make to build the document.
+```
 make
 
 jinja2 --format yaml template.j2 myletter.yaml > myletter.md
