@@ -1,8 +1,8 @@
-This is an example of a cookiecutter template for dynamic document generation. I use this in my own work for cutting legal agreements which need various dates and names filled in throughout the template. Here I made just a simple letter fill-in.
+This is an example of a cookiecutter template for dynamic document generation. I use this in my own work for cutting legal agreements which need various dates and names filled in throughout the template. Here I made just a simple letter fill-in as an example. The real power comes when you make decisions in the template based on yaml key/value pairs and their values. So for more on that read the [jinja2 docs](http://jinja.pocoo.org/docs/2.9/).
 
 ## Demo
 
-We build a jinja2 template and apply values using pandoc to a LibreOffice template (which just holds styles, no content or template variables).
+First we create a jinja2 template and apply values using pandoc to a LibreOffice template (which just holds styles, no content or template variables).
 
 An example jinja2 template.
 ```
@@ -68,7 +68,7 @@ rm myletter.md
 
 ![](https://jduckles-dropshare.s3-us-west-2.amazonaws.com/Screen-Shot-2017-04-27-11-53-50-7WagERkTtw.png)
 
-You can edit the template and set default fonts and styles in the template and they will be applied through to the PDF. You can even generate letterhead by adding a logo. Note that the template can be empty, but the styles for *Body Text*, *H1*, *H2* etc should be configured in the template.odt file to suit your needs.
+You can edit the LibreOffice template and set default fonts and styles in the template and they will be applied through to the PDF. You can even generate letterhead by adding a logo. Note that the template can be empty, but the styles for *Body Text*, *H1*, *H2* etc should be configured in the template.odt file to suit your needs.
 
 ## Requirements
 Basic setup and makefile for using python cookiecutter to build templated documents.
@@ -83,3 +83,11 @@ brew cask install libreoffice
 
 ## Setting paths
 You'll need to edit the Makefile in `{{cookiecutter.dirname}}` in order to point to the appropriate path for LibreOffice's soffice executable. No changes should be necessary on a Mac if you've installed LibreOffice in `/Applications`.
+
+## Configuring your own template
+
+1. Fork/copy this repo to your own account
+2. Edit `template.j2` for your needs, adding `{{ keyname }}` with unique keys for where you want fillins.
+3. Set key/value pairs in both `cookiecutter.json` and `{{cookiecutter.dirname}}/{{cookiecutter.dirname}}.yaml`
+4. Give it a go!
+
